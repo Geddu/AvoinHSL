@@ -13,4 +13,7 @@ export default defineConfig({
     // This is needed for some node built-ins that vite doesn't handle by default
     "process.env": {},
   },
+  server: {
+    port: 3000,
+  },
 });

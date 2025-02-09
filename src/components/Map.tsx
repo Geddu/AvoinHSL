@@ -49,7 +49,8 @@ const BOUNDS = {
  * This is needed because Leaflet's default icon paths don't work with bundlers
  */
 const initializeLeaflet = () => {
-  delete (L.Icon.Default.prototype as any)._getIconUrl;
+  delete (L.Icon.Default.prototype as L.Icon.Default & { _getIconUrl: unknown })
+    ._getIconUrl;
   L.Icon.Default.mergeOptions({
     iconRetinaUrl: "/leaflet/marker-icon-2x.png",
     iconUrl: "/leaflet/marker-icon.png",

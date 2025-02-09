@@ -28,7 +28,14 @@ jobs:
         run: pnpm typecheck
 
       - name: Lint
-        run: pnpm lint
+        run: |
+          pnpm lint --max-warnings 0
+          if [ $? -eq 0 ]; then
+            echo "✅ ESLint passed"
+          else
+            echo "❌ ESLint failed"
+            exit 1
+          fi
 
   deploy:
     needs: test

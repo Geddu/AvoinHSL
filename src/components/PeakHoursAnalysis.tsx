@@ -3,7 +3,7 @@ import { STOP_TIMES_WITH_PATTERNS } from "@/graphql/queries";
 import styles from "./PeakHoursAnalysis.module.scss";
 import { useMemo } from "react";
 import { StopTime } from "@/types/hsl";
-import { startOfDay, endOfDay } from "date-fns";
+import { startOfDay } from "date-fns";
 import InfoTooltip from "./common/InfoTooltip";
 
 interface PeakHoursAnalysisProps {

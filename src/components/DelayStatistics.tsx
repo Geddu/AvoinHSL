@@ -4,6 +4,7 @@ import styles from "./DelayStatistics.module.scss";
 import { useMemo } from "react";
 import { startOfDay } from "date-fns";
 import InfoTooltip from "./common/InfoTooltip";
+import { StopTime } from "@/types/hsl";
 
 interface DelayStatisticsProps {
   stopId: string;
@@ -33,8 +34,8 @@ export default function DelayStatistics({ stopId }: DelayStatisticsProps) {
 
     // Filter for departures with real-time data and extract delays
     const delays = data.stop.stoptimesWithoutPatterns
-      .filter((st: any) => st.realtime)
-      .map((st: any) => st.arrivalDelay);
+      .filter((st: StopTime) => st.realtime)
+      .map((st: StopTime) => st.arrivalDelay);
 
     // Calculate key metrics
     return {

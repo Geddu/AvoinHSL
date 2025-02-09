@@ -1,7 +1,13 @@
 import { useQuery } from "@apollo/client";
 import { NEARBY_STOPS } from "@/graphql/queries";
 import styles from "./NearbyStops.module.scss";
-import { useState, useMemo, useEffect, useCallback, useRef } from "react";
+import React, {
+  useState,
+  useMemo,
+  useEffect,
+  useCallback,
+  useRef,
+} from "react";
 import PeakHoursAnalysis from "./PeakHoursAnalysis";
 import DelayStatistics from "./DelayStatistics";
 import RouteHeatmap from "./RouteHeatmap";
@@ -39,10 +45,7 @@ function useClickOutside(
   }, [ref, handler]);
 }
 
-export default function NearbyStops({
-  location,
-  onLocationChange,
-}: NearbyStopsProps) {
+export default function NearbyStops({ location }: NearbyStopsProps) {
   // State for managing stop list and UI interactions
   const [selectedStop, setSelectedStop] = useState<string | null>(null);
   const [selectedStopName, setSelectedStopName] = useState("");
@@ -92,7 +95,7 @@ export default function NearbyStops({
     if (inView && displayedStops < filteredStops.length) {
       setDisplayedStops((prev) => prev + STOPS_PER_PAGE);
     }
-  }, [inView, filteredStops.length]);
+  }, [inView, filteredStops.length, displayedStops]);
 
   // Check if there are more stops to load
   const hasMoreStops = displayedStops < filteredStops.length;
@@ -160,7 +163,7 @@ export default function NearbyStops({
           ? Array.from({ length: 4 }).map((_, i) => (
               <LoadingCard key={`loading-${i}`} lines={3} />
             ))
-          : filteredStops.slice(0, displayedStops).map(({ node }: any) => (
+          : filteredStops.slice(0, displayedStops).map(({ node }: StopEdge) => (
               <div
                 key={node.stop.gtfsId}
                 className={`${styles.stopCard} ${
@@ -175,7 +178,7 @@ export default function NearbyStops({
                 </h3>
                 <p>Distance: {Math.round(node.distance)}m</p>
                 <div className={styles.routes}>
-                  {node.stop.routes.map((route: any) => (
+                  {node.stop.routes.map((route: Route) => (
                     <span
                       key={route.gtfsId}
                       className={`${styles.routeTag} ${
