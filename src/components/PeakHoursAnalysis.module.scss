@@ -1,0 +1,83 @@
+.container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.header {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.scrollContainer {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 1rem;
+}
+
+.graph {
+  display: flex;
+  gap: 0.5rem;
+  min-width: min(800px, 90vw);
+  height: 200px;
+  align-items: flex-end;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  min-width: 30px;
+}
+
+.barFill {
+  width: 100%;
+  background: var(--primary-color);
+  opacity: 0.7;
+  transition: height 0.3s ease;
+  border-radius: 4px 4px 0 0;
+}
+
+.hour {
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: var(--text-color);
+  margin-top: 0.5rem;
+}
+
+.count {
+  position: absolute;
+  top: -20px;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .graph {
+    margin: 0.5rem 0;
+    gap: 0.25rem;
+  }
+
+  .bar {
+    min-width: 25px;
+  }
+
+  .hour {
+    transform: rotate(-45deg);
+    margin-top: 1rem;
+  }
+}

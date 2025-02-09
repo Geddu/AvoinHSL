@@ -1,0 +1,108 @@
+.dialog {
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  width: min(90vw, 1200px);
+  height: min(90vh, 800px);
+  max-height: 90vh;
+  animation: dialogFadeIn 0.3s ease-out;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    animation: backdropFadeIn 0.3s ease-out;
+  }
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+  background: #f8f8f8;
+  border-radius: 12px 12px 0 0;
+  flex-shrink: 0;
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  margin-left: 1rem;
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    padding: 0.25rem;
+  }
+}
+
+.content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex-grow: 1;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+@keyframes dialogFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .dialog {
+    width: 95vw;
+    height: 95vh;
+  }
+}

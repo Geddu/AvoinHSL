@@ -1,0 +1,292 @@
+.container {
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.stopsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.loadMore {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.stopCard {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  animation: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  // Transport mode colors for stop names
+  .bus {
+    color: #0066cc;
+  }
+  .tram {
+    color: #00985f;
+  }
+  .rail {
+    color: #8c4799;
+  }
+  .subway {
+    color: #ff6319;
+  }
+  .ferry {
+    color: #00b9e4;
+  }
+
+  &.animate {
+    animation: slideIn 0.3s ease-out forwards;
+    opacity: 0;
+  }
+
+  @for $i from 0 through 10 {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+.routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.routeTag {
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: var(--secondary-color);
+
+  &.bus {
+    background: #0066cc;
+    color: white;
+  }
+  &.tram {
+    background: #00985f;
+    color: white;
+  }
+  &.rail {
+    background: #8c4799;
+    color: white;
+  }
+  &.subway {
+    background: #ff6319;
+    color: white;
+  }
+  &.ferry {
+    background: #00b9e4;
+    color: white;
+  }
+}
+
+.selected {
+  border: 2px solid var(--primary-color);
+  transition: border-color 0.2s ease;
+}
+
+.insights {
+  margin-top: 2rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.dialogContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.titleSection {
+  h2 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.searchSection {
+  margin-left: auto;
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 350px;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  border: 2px solid #eee;
+  border-radius: 100px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f8f8f8;
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem 0.625rem 2.5rem;
+  }
+}
+
+.filterButton {
+  background: #f8f8f8;
+  border: 2px solid #eee;
+  border-radius: 100px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #666;
+  position: relative;
+
+  &:hover {
+    background: white;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  &.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+.filterDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  z-index: 10;
+  min-width: 150px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+
+  &:hover {
+    background: #f8f8f8;
+  }
+
+  input {
+    margin: 0;
+  }
+
+  span {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.filterCount {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 100px;
+  min-width: 18px;
+  height: 18px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-weight: 500;
+}

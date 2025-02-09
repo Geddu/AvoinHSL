@@ -1,0 +1,159 @@
+.container {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  animation: fadeIn 0.3s ease-out;
+  transition: all 0.3s ease;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.statCard {
+  position: relative;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  animation: none;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &.animate {
+    animation: slideIn 0.3s ease-out forwards;
+    opacity: 0;
+  }
+
+  @for $i from 0 through 5 {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+  position: relative;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+  position: relative;
+}
+
+.mainStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.stopCount,
+.routeCount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.count {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.label {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+.metricLabel {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.metricValue {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.percentage {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.875rem;
+}
+
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: var(--primary-color);
+  opacity: 0.2;
+  transition: width 0.6s ease-out;
+}
+
+// Transport mode specific colors
+.bus {
+  color: #0066cc;
+}
+.tram {
+  color: #00985f;
+}
+.rail {
+  color: #8c4799;
+}
+.subway {
+  color: #ff6319;
+}
+.ferry {
+  color: #00b9e4;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

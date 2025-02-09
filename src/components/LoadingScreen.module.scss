@@ -1,0 +1,84 @@
+.loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 1000;
+}
+.title {
+  color: var(--primary-color);
+}
+.content {
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.tramTrack {
+  width: 300px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  position: relative;
+  overflow: hidden;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 1;
+  }
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+  }
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+  }
+}
+
+.tram {
+  font-size: 4rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-90%);
+  animation: moveAcross 2.5s infinite linear;
+  opacity: 0;
+  animation: moveAcross 2.5s infinite linear, fadeInOut 2.5s infinite linear;
+}
+
+@keyframes moveAcross {
+  0% {
+    transform: translateY(-50%) translateX(-90%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(300px);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

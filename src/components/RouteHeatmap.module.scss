@@ -1,0 +1,129 @@
+.container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.header {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.scrollContainer {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 1rem;
+}
+
+.heatmapContainer {
+  min-width: 800px;
+  margin-bottom: 1rem;
+}
+
+.timeLabels {
+  display: flex;
+  position: sticky;
+  left: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.timeLabel {
+  flex: 1;
+  text-align: center;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  padding: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.cornerCell {
+  width: 80px;
+}
+
+.heatmap {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.02);
+  }
+}
+
+.routeLabel {
+  width: 80px;
+  padding: 0 0.5rem;
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 1;
+}
+
+.routeTag {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.cell {
+  width: 50px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    z-index: 2;
+  }
+}
+
+.frequency {
+  font-size: 0.75rem;
+  color: white;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  .cell:hover & {
+    opacity: 1;
+  }
+}
+
+// Transport mode colors
+.bus {
+  background: #0066cc;
+  color: white;
+}
+
+.tram {
+  background: #00985f;
+  color: white;
+}
+
+.rail {
+  background: #8c4799;
+  color: white;
+}
+
+.subway {
+  background: #ff6319;
+  color: white;
+}
+
+.ferry {
+  background: #00b9e4;
+  color: white;
+}

@@ -1,0 +1,77 @@
+:root {
+  --primary-color: #007ac9; // HSL blue
+  --secondary-color: #00985f; // HSL green
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+// Leaflet styles
+.leaflet-container {
+  font: inherit;
+}
+
+.leaflet-container .leaflet-control-attribution {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+}
+
+// Animation keyframes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+// Loading animation
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+  background: #f0f0f0;
+  border-radius: 4px;
+}

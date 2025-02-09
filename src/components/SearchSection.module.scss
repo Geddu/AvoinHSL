@@ -1,0 +1,160 @@
+.searchSection {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 350px;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  border: 2px solid #eee;
+  border-radius: 100px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #f8f8f8;
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem 0.625rem 2.5rem;
+  }
+}
+
+.filterButton {
+  background: #f8f8f8;
+  border: 2px solid #eee;
+  border-radius: 100px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #666;
+  position: relative;
+
+  &:hover {
+    background: white;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  &.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+.filterCount {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 100px;
+  min-width: 18px;
+  height: 18px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-weight: 500;
+}
+
+.filterDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  z-index: 10;
+  min-width: 150px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+
+  &:hover {
+    background: #f8f8f8;
+  }
+
+  input {
+    margin: 0;
+  }
+
+  span {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+// Transport mode colors
+.bus {
+  color: #0066cc;
+}
+.tram {
+  color: #00985f;
+}
+.rail {
+  color: #8c4799;
+}
+.subway {
+  color: #ff6319;
+}
+.ferry {
+  color: #00b9e4;
+}
