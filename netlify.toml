@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm build"
+  command = "pnpm typecheck && pnpm build"
   publish = "dist"
 
 [build.environment]

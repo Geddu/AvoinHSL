@@ -126,17 +126,16 @@ export default function NearbyStops({
             content={
               <>
                 <p>
-                  Overview of stops by primary transport mode in the selected
-                  area.
+                  List of all public transport stops within 500 meters of the
+                  selected location.
                 </p>
                 <p>
-                  Each stop is categorized by its most common transport mode.
-                  For example, a stop served by multiple bus lines and one tram
-                  line would be counted as a bus stop.
+                  Each stop card shows: • Stop name and distance • All routes
+                  serving the stop • Color-coded route numbers by transport mode
                 </p>
                 <p>
-                  The progress bar indicates the proportion of each transport
-                  mode compared to the total number of stops.
+                  Click on any stop to view detailed statistics including peak
+                  hours, delays, and route frequency analysis.
                 </p>
               </>
             }
