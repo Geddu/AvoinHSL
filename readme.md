@@ -47,7 +47,7 @@ pnpm install
 3. Create a `.env.local` file with your HSL API credentials:
 
 ```env
-VITE_HSL_API_URL=(your api url)
+VITE_API_KEY=(your api url)
 ```
 
 You can get your api url from [here](https://digitransit.fi/en/developers/api-registration/)

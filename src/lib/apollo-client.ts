@@ -14,7 +14,7 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-export const client = new ApolloClient({
+const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
   defaultOptions: {
@@ -25,4 +25,7 @@ export const client = new ApolloClient({
       fetchPolicy: "network-only",
     },
   },
+  uri: import.meta.env.VITE_HSL_API_URL,
 });
+
+export default client;
