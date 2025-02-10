@@ -2,7 +2,13 @@
 
 A modern web application for exploring and analyzing Helsinki public transport stops in real-time.
 
-![HSL Stop Inspector Screenshot](public/screenshot.png)
+## 🌟 Live Demo
+
+Check out the live demo of the HSL Stop Inspector:
+
+[https://avoinhsl.netlify.app/](https://avoinhsl.netlify.app/)
+
+![HSL Stop Inspector Screenshot](https://cdn.discordapp.com/attachments/998966959175634977/1338300873494892575/image.png?ex=67aa9550&is=67a943d0&hm=be7f1364647a54c167d5c772c087b066b66b4a0b2853eb293615e3dbecc5628a&)
 
 ## ✨ Features
 
@@ -41,7 +47,6 @@ pnpm install
 env
 NEXT_PUBLIC_HSL_API_URL=https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql
 
-
 4. Start the development server:
 
 bash
@@ -60,17 +65,17 @@ pnpm dev
 ## 🔄 Future Improvements
 
 1. **Performance Optimizations**
+
    - Implement data caching for frequently accessed stops
-   - Add request debouncing for map interactions
    - Optimize bundle size
 
 2. **Feature Enhancements**
+
    - Add route path visualization on map
-   - Implement favorite stops functionality
    - Add historical delay analysis
-   - Support for comparing multiple locations
 
 3. **User Experience**
+
    - Add more interactive tooltips and guides
    - Implement dark mode
    - Add accessibility improvements
