@@ -35,7 +35,7 @@ Check out the live demo of the HSL Stop Inspector:
 
 ```bash
 git clone https://github.com/Geddu/AvoinHSL.git
-cd hsl-stop-inspector
+cd AvoinHSL
 ```
 
 2. Install dependencies:
@@ -47,7 +47,7 @@ pnpm install
 3. Create a `.env.local` file with your HSL API credentials:
 
 ```env
-NEXT_PUBLIC_HSL_API_URL=(your api url)
+VITE_HSL_API_URL=(your api url)
 ```
 
 You can get your api url from [here](https://digitransit.fi/en/developers/api-registration/)
@@ -62,7 +62,8 @@ pnpm dev
 
 ## 🛠️ Built With
 
-- Next.js 14
+- Vite
+- React 18
 - Apollo Client
 - Leaflet Maps
 - TypeScript
