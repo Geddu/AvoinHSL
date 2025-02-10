@@ -25,7 +25,6 @@ const client = new ApolloClient({
       fetchPolicy: "network-only",
     },
   },
-  uri: import.meta.env.VITE_HSL_API_URL,
 });
 
 export default client;
