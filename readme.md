@@ -33,25 +33,30 @@ Check out the live demo of the HSL Stop Inspector:
 
 1. Clone the repository:
 
-bash
+```bash
 git clone https://github.com/Geddu/AvoinHSL.git
 cd hsl-stop-inspector
+```
 
 2. Install dependencies:
 
-bash
+```bash
 pnpm install
+```
 
 3. Create a `.env.local` file with your HSL API credentials:
 
-env
+```env
 NEXT_PUBLIC_HSL_API_URL=(your api url)
+```
+
 You can get your api url from [here](https://digitransit.fi/en/developers/api-registration/)
 
 4. Start the development server:
 
-bash
+```bash
 pnpm dev
+```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
