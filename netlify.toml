@@ -4,7 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  VITE_API_KEY = "your_api_url_here"
+
+[secrets]
+  SECRETS_SCAN_OMIT_KEYS = ["VITE_API_KEY"]
 
 [[redirects]]
   from = "/*"
