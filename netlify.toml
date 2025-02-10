@@ -6,7 +6,7 @@
   NODE_VERSION = "20"
 
 [secrets]
-  SECRETS_SCAN_OMIT_KEYS = ["VITE_API_KEY"]
+  SECRETS_SCAN_OMIT_KEYS = ["VITE_API_KEY", "VITE_HSL_API_URL"]
 
 [[redirects]]
   from = "/*"

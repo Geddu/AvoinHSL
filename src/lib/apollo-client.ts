@@ -2,7 +2,7 @@ import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
-  uri: "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql",
+  uri: import.meta.env.VITE_HSL_API_URL,
 });
 
 const authLink = setContext((_, { headers }) => {
