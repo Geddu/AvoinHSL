@@ -34,7 +34,7 @@ Check out the live demo of the HSL Stop Inspector:
 1. Clone the repository:
 
 bash
-git clone https://github.com/yourusername/hsl-stop-inspector.git
+git clone https://github.com/Geddu/AvoinHSL.git
 cd hsl-stop-inspector
 
 2. Install dependencies:
@@ -45,7 +45,8 @@ pnpm install
 3. Create a `.env.local` file with your HSL API credentials:
 
 env
-NEXT_PUBLIC_HSL_API_URL=https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql
+NEXT_PUBLIC_HSL_API_URL=(your api url)
+You can get your api url from [here](https://digitransit.fi/en/developers/api-registration/)
 
 4. Start the development server:
 
@@ -86,6 +87,12 @@ pnpm dev
    - Add comprehensive test coverage
    - Implement proper error boundaries
    - Add proper loading states for all data fetching
+
+## 🤔 Difficulties
+
+- Getting the data from the HSL API was the most difficult part.
+- The data is not very consistent and sometimes the stop name is not available.
+- Their documentation could use some work.
 
 ## 📝 License
 
