@@ -98,7 +98,7 @@ pnpm dev
 
 - Getting the data from the HSL API was the most difficult part.
 - The data is not very consistent and sometimes the stop name is not available.
-- Their documentation could use some work.
+- Their documentation could really use some work.
 
 ## 📝 License
 
